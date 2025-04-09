@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Tab Audio Recorder & Transcriber</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "speech-recognition": "https://cdn.jsdelivr.net/npm/web-speech-api@0.2.0/speech-recognition.min.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Browser Tab Audio Recorder & Transcriber</h1>
+        </header>
+        
+        <main>
+            <div class="recording-section">
+                <h2>Step 1: Select and Record Tab Audio</h2>
+                <button id="startCapture" class="primary-btn">Select Tab to Record</button>
+                <div id="recordingControls" class="hidden">
+                    <div class="recording-info">
+                        <span id="tabInfo">Recording: </span>
+                        <div id="recordingIndicator">
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="6" fill="#ff4545"></circle>
+                            </svg>
+                            <span>Recording</span>
+                        </div>
+                        <span id="recordingTime">00:00</span>
+                    </div>
+                    <button id="stopCapture" class="secondary-btn">Stop Recording</button>
+                </div>
+            </div>
+
+            <div class="transcription-section">
+                <h2>Step 2: Transcribe Audio</h2>
+                <div id="audioPreview" class="hidden">
+                    <p>Audio recording preview:</p>
+                    <audio id="recordedAudio" controls></audio>
+                    <button id="transcribeAudio" class="primary-btn">Transcribe Audio</button>
+                </div>
+                <div id="transcriptionOutput" class="hidden">
+                    <h3>Transcription Results:</h3>
+                    <div id="transcriptionStatus"></div>
+                    <div id="transcriptionText" class="transcription-text"></div>
+                    <button id="copyTranscription" class="secondary-btn">Copy to Clipboard</button>
+                    <button id="downloadTranscription" class="secondary-btn">Download as Text</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Note: This tool requires Chrome browser. Tab audio recording requires screen sharing permission.</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
